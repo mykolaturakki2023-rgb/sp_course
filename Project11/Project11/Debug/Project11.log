@@ -1,0 +1,6 @@
+﻿  syntax_one.cpp
+C:\Users\user\Documents\Cource Work\Project11\Project11\syntax_one.cpp(35,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\user\Documents\Cource Work\Project11\Project11\syntax_one.cpp(662,24): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+C:\Users\user\Documents\Cource Work\Project11\Project11\syntax_one.cpp(729,47): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\user\Documents\Cource Work\Project11\Project11\syntax_one.cpp(756,47): warning C4018: '<=': signed/unsigned mismatch
+  Project11.vcxproj -> C:\Users\user\Documents\Cource Work\Project11\Debug\Project11.exe

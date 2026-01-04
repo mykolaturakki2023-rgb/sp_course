@@ -1,0 +1,3 @@
+﻿  view_dfa_or_partdfa.cpp
+C:\Users\user\Documents\Cource Work\dfa\Kursova\view_dfa_or_partdfa.cpp(70,64): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Kursova.vcxproj -> C:\Users\user\Documents\Cource Work\dfa\Kursova\x64\Debug\Kursova.exe

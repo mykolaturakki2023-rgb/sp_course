@@ -1,0 +1,52 @@
+D(q,ε,program_name) → {(q, ident )}
+D(q,ε,value_type) → {(q, int32 )}
+D(q,ε,array_specify) → {(q, [ unsigned_value ] )}
+D(q,ε,declaration_element) → {(q, ident array_specify__optional )}
+D(q,ε,array_specify__optional) → {(q, array_specify ),(q, ε )}
+D(q,ε,other_declaration_ident) → {(q, , declaration_element )}
+D(q,ε,declaration) → {(q, value_type declaration_element other_declaration_ident__iteration )}
+D(q,ε,other_declaration_ident__iteration) → {(q, other_declaration_ident other_declaration_ident__iteration ),(q, ε )}
+D(q,ε,index_action) → {(q, [ expression ] )}
+D(q,ε,unary_operator) → {(q, ! )}
+D(q,ε,unary_operation) → {(q, unary_operator expression )}
+D(q,ε,binary_operator) → {(q, & ),(q, | ),(q, == ),(q, != ),(q, lt ),(q, gt ),(q, add ),(q, - ),(q, mul ),(q, / ),(q, % )}
+D(q,ε,binary_action) → {(q, binary_operator expression )}
+D(q,ε,left_expression) → {(q, group_expression ),(q, unary_operation ),(q, cond_block ),(q, value ),(q, value ),(q, ident index_action__optional )}
+D(q,ε,index_action__optional) → {(q, index_action ),(q, ε )}
+D(q,ε,expression) → {(q, left_expression binary_action__iteration )}
+D(q,ε,binary_action__iteration) → {(q, binary_action binary_action__iteration ),(q, ε )}
+D(q,ε,group_expression) → {(q, ( expression ) )}
+D(q,ε,expression_or_cond_block__with_optional_assign) → {(q, expression assign_to_right__optional )}
+D(q,ε,assign_to_right) → {(q, -> ident index_action__optional )}
+D(q,ε,assign_to_right__optional) → {(q, assign_to_right ),(q, ε )}
+D(q,ε,if_expression) → {(q, expression )}
+D(q,ε,body_for_true) → {(q, block_statements_in_while_and_if_body )}
+D(q,ε,false_cond_block_without_else) → {(q, else if if_expression body_for_true )}
+D(q,ε,body_for_false) → {(q, else block_statements )}
+D(q,ε,cond_block) → {(q, if if_expression body_for_true false_cond_block_without_else__iteration body_for_false__optional )}
+D(q,ε,false_cond_block_without_else__iteration) → {(q, false_cond_block_without_else false_cond_block_without_else__iteration ),(q, ε )}
+D(q,ε,continue_while) → {(q, continue )}
+D(q,ε,break_while) → {(q, break )}
+D(q,ε,statement_in_while_and_if_body) → {(q, statement ),(q, continue_while ),(q, break_while )}
+D(q,ε,block_statements_in_while_and_if_body) → {(q, { statement_in_while_and_if_body__iteration } )}
+D(q,ε,statement_in_while_and_if_body__iteration) → {(q, statement_in_while_and_if_body statement_in_while_and_if_body__iteration ),(q, ε )}
+D(q,ε,while_cycle_head_expression) → {(q, expression )}
+D(q,ε,while_cycle) → {(q, while while_cycle_head_expression block_statements_in_while_and_if_body )}
+D(q,ε,statements__or__block_statements) → {(q, statement__iteration ),(q, block_statements )}
+D(q,ε,input_rule) → {(q, read argument_for_input )}
+D(q,ε,argument_for_input) → {(q, ident index_action__optional ),(q, ( ident index_action__optional ) )}
+D(q,ε,output_rule) → {(q, write expression )}
+D(q,ε,statement) → {(q, expression_or_cond_block__with_optional_assign ),(q, while_cycle ),(q, input_rule ),(q, output_rule ),(q, ; )}
+D(q,ε,statement__iteration) → {(q, statement statement__iteration ),(q, ε )}
+D(q,ε,block_statements) → {(q, { statement__iteration } )}
+D(q,ε,expression__optional) → {(q, expression ),(q, ε )}
+D(q,ε,program_rule) → {(q, program program_name ; begin var declaration__optional ; statement__iteration end )}
+D(q,ε,declaration__optional) → {(q, declaration ),(q, ε )}
+D(q,ε,value) → {(q, sign__optional unsigned_value )}
+D(q,ε,sign__optional) → {(q, sign ),(q, ε )}
+D(q,ε,sign) → {(q, sign_plus ),(q, sign_minus )}
+D(q,ε,sign_plus) → {(q, add )}
+D(q,ε,sign_minus) → {(q, - )}
+D(q,ε,unsigned_value) → {(q, unsigned_value_terminal )}
+D(q,ε,ident) → {(q, ident_terminal )}
+D(q,ε,program____part1) → {(q, program program_name ; begin var declaration_optional ; )}

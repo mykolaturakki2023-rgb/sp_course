@@ -1,0 +1,24 @@
+program FF;
+begin var int32 AA , BB , CA , CB , VL;
+  read ( AA )
+  read ( BB )
+
+  AA -> CA
+  for CA lt BB add 1{
+    write ( CA mul CA )
+	CA add 1 -> CA
+  }
+  
+  0 -> VL
+  1 -> CA
+  while CA lt AA add 1{
+    1 -> CB
+    while CB lt BB add 1 {
+      VL add 1 -> VL 
+	  CB add 1 -> CB
+	}
+	CA add 1 -> CA
+  }
+  write ( VL )
+
+end

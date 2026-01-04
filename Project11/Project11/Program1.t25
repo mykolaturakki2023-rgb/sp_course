@@ -1,0 +1,18 @@
+program TT;
+begin var int32 AA, BB, CC, DD;
+  read (AA)
+  read (BB)
+
+  write (AA add BB)
+  write (AA - BB)
+  write (AA mul BB)
+  write (AA / BB)
+  write (AA % BB)
+
+  (AA - BB) mul 10 add (AA add BB) % 10 CC
+  CC add CC % 10 DD;
+
+  write (CC)
+  write (DD)
+
+end
