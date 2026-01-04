@@ -1,0 +1,34 @@
+program DD;
+begin var int32 AA, BB, CC, MA ;
+  read ( AA )
+  read ( BB )
+  read ( CC )
+
+  if AA lt BB & AA lt CC {
+    AA -> MA
+  } else if BB lt AA & BB lt CC {
+    BB -> MA
+  } else {
+    CC -> MA
+  }
+  write ( MA )
+
+  if ( AA == BB ) & ( AA == CC ) & ( BB == CC ) {
+    write ( 1 )
+  } else {
+    write ( 0 )
+  }
+    
+  if ( AA gt 0 ) | ( BB gt 0 ) | ( CC gt 0 ) {
+    write ( -1 )
+  } else {
+    write ( 0 )
+  }
+
+  if ! ( AA gt ( BB add CC ) ) {
+    write ( 10 )
+  } else {
+    write ( 0 )
+  }
+ 
+end
